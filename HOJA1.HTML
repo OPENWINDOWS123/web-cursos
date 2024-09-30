@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="HOJA2.CSS">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Cursos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>            Gestión de Cursos</h1>
+        <img src="img4.jpg" alt="Descripción de la imagen" style="max-width: 100%; height: auto;">
+        <nav>
+            <ul>
+                <li><a href="#inicio" onclick="mostrarInicio()">Inicio</a></li>
+                <li><a href="#cursos" onclick="mostrarCursos()">Cursos</a></li>
+                <li><a href="#agregar-curso" onclick="mostrarFormulario()">Agregar Curso</a></li>
+                <li><a href="#contacto" onclick="agregarContacto()">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" style="display: block;">
+            <h2>Bienvenido</h2>
+           
+            <div class="publicidad">
+                <p>¡Promoción especial! Inscríbete en nuestros cursos y obtén un 20% de descuento.</p>
+                <img src="img.jpg" alt="Imagen de un curso" style="max-width: 100%; height: auto;">
+            </div>
+        
+        </section>
+
+    </section>
+
+    <section id="cursos" style="display: none;">
+        <h6>Cursos Disponibles</h6>
+        <div id="cursos-list"></div>
+    </section>
+
+    <script>
+        const cursos = []; // Arreglo para almacenar los cursos
+
+        function agregarCurso(event) {
+            event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+            // Captura los valores del formulario
+            const nombreCurso = document.getElementById('nombre-curso').value;
+            const descripcionCurso = document.getElementById('descripcion-curso').value;
+            const duracionCurso = document.getElementById('duracion-curso').value;
+
+            // Crea un objeto curso y lo agrega al arreglo
+            const curso = {
+                nombre: nombreCurso,
+                descripcion: descripcionCurso,
+                duracion: duracionCurso,
+            };
+            cursos.push(curso);
+
+            // Limpia el formulario
+            document.getElementById('cursoForm').reset();
+
+            // Muestra los cursos en la lista
+            mostrarCursos();
+        }
+
+        function mostrarCursos() {
+            const listaCursos = document.getElementById('cursos-list');
+            listaCursos.innerHTML = ''; // Limpia la lista actual
+
+            cursos.forEach((curso) => {
+                // Crea un div para cada curso
+                const divCurso = document.createElement('div');
+                divCurso.className = 'curso';
+                divCurso.innerHTML = `<strong>${curso.nombre}</strong><p>${curso.descripcion}</p><small>Duración: ${curso.duracion} horas</small>`;
+                listaCursos.appendChild(divCurso); // Agrega el curso a la lista
+            });
+        }
+
+        function mostrarSeccion(seccion) {
+            // Oculta todas las secciones
+            document.getElementById('agregar-curso').style.display = 'none';
+            document.getElementById('cursos').style.display = 'none';
+
+            // Muestra la sección seleccionada
+            if (seccion === 'cursos') {
+                document.getElementById('cursos').style.display = 'block';
+            } else if (seccion === 'agregar-curso') {
+                document.getElementById('agregar-curso').style.display = 'block';
+            }
+        }
+    </script>
+
+        <section id="agregar-curso" style="display: none;">
+        
+            <h2>Agregar Curso</h2>
+           
+            <form id="cursoForm" onsubmit="agregarCurso(event)">
+                <label for="nombre-curso">Nombre del Curso:</label>
+                <input type="text" id="nombre-curso" required>
+                
+                <label for="nombre-instructor">Nombre del Instructor:</label>
+                <input type="text" id="nombre-instructor" required>
+                
+                <label for="fecha-inicio">Fecha de Inicio:</label>
+                <input type="date" id="fecha-inicio" required>
+                
+                <label for="duracion">Duración (semanas):</label>
+                <input type="number" id="duracion" required min="1">
+                
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" required></textarea>
+                
+                <button type="submit">Agregar Curso</button>
+            </form>
+        </section>
+
+        <section id="contacto" style="display: none;">
+            <h2>Contacto</h2>
+            <p id="contacto-info"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Gestión de Cursos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="HOJA3.JS"></script>
+   
+</body>
+</html>

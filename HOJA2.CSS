@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+section {
+    position: relative; /* Necesario para el posicionamiento del fondo */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde */
+    width: 100%; /* Asegura que la sección ocupe todo el ancho */
+    height: 100vh; /* Altura completa de la ventana */
+}
+
+.image-bg {
+    position: absolute; /* Asegura que el fondo esté detrás del contenido */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupar todo el ancho */
+    height: 100%; /* Ocupar toda la altura */
+    background-size: cover; /* Hacer que la imagen cubra todo el fondo */
+    background-position: center; /* Centrar la imagen */
+    background-image: url('img4.jpg');
+    background-repeat: no-repeat; /* No repetir la imagen */
+    z-index: -1; /* Envía el fondo detrás de otros elementos */
+}
+
+section h2, section p {
+    position: relative; /* Asegura que el texto esté por encima del fondo */
+    z-index: 1; /* Mantiene el texto en el primer plano */
+}
+
+section img {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto de transición */
+    margin-bottom: 15px; /* Espaciado inferior */
+    background-image: url('img4.jpg');
+}
+
+section img:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el cursor */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al pasar el cursor */
+    background-image: url('img4.jpg');
+}
+
+
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    color: rgb(19, 91, 224);
+  
+}
+
+
+h1{
+    width: 100%;
+    height:100%;
+    background: transparent;
+    border:none;
+    outline: none;
+    border: 2px solid rgba(100,255,255,.2 );
+    border-radius: 80px;
+    background: salmon;
+    margin: 80px 0;
+    width: 1320px;
+background: purple;
+
+}
+body {
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina padding por defecto */
+    font-family: 'Arial', sans-serif; /* Fuente general */
+    line-height: 1.6; /* Espaciado entre líneas */
+    color: #333; /* Color de texto */
+    background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Degradado atractivo */
+    background-attachment: fixed; /* Fija el fondo al hacer scroll */
+}
+
+
+
+
